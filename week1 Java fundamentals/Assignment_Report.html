@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 1 Assignment: Java Fundamentals - Aadarsh</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #24292e;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: #fff;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #0056b3;
+            margin: 0 0 10px 0;
+            font-size: 26px;
+        }
+        .header p {
+            margin: 4px 0;
+            font-size: 14px;
+            color: #555;
+        }
+        .student-box {
+            background-color: #f4f8fc;
+            border: 1px solid #b8daff;
+            border-radius: 8px;
+            padding: 15px 25px;
+            margin-bottom: 30px;
+        }
+        .student-box table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .student-box td {
+            padding: 6px 10px;
+            font-size: 14px;
+        }
+        .student-box td.label {
+            font-weight: bold;
+            color: #004085;
+            width: 25%;
+        }
+        .task-card {
+            border: 1px solid #e1e4e8;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            page-break-inside: avoid;
+            background: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+            overflow: hidden;
+        }
+        .task-header {
+            background: #f6f8fa;
+            border-bottom: 1px solid #e1e4e8;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .task-header h2 {
+            margin: 0;
+            font-size: 18px;
+            color: #24292e;
+        }
+        .marks-badge {
+            background: #28a745;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .task-content {
+            padding: 20px;
+        }
+        .task-content h3 {
+            font-size: 14px;
+            color: #0056b3;
+            margin-top: 15px;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        pre {
+            background-color: #272822;
+            color: #f8f8f2;
+            padding: 14px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 12.5px;
+            line-height: 1.45;
+        }
+        .terminal-output {
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            border-left: 4px solid #007acc;
+        }
+        .screenshot-placeholder {
+            border: 2px dashed #007acc;
+            background-color: #f0f7ff;
+            border-radius: 6px;
+            padding: 25px;
+            text-align: center;
+            color: #0056b3;
+            font-size: 13px;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+        .explanation-box {
+            background-color: #fff9e6;
+            border-left: 4px solid #ffc107;
+            padding: 12px 16px;
+            border-radius: 4px;
+            font-size: 13.5px;
+            color: #664d03;
+            margin-top: 10px;
+        }
+        .explanation-box ol, .explanation-box ul {
+            margin: 6px 0;
+            padding-left: 20px;
+        }
+        .checklist-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 13.5px;
+        }
+        .checklist-table th, .checklist-table td {
+            border: 1px solid #dee2e6;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        .checklist-table th {
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        @media print {
+            body {
+                padding: 0;
+            }
+            .task-card {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Week 1 Assignment: Java Fundamentals</h1>
+        <p><strong>Course:</strong> Java Programming Internship (Nova) &nbsp;|&nbsp; <strong>Duration:</strong> 1 Week &nbsp;|&nbsp; <strong>Total Marks:</strong> 100</p>
+    </div>
+
+    <div class="student-box">
+        <table>
+            <tr>
+                <td class="label">Student Name:</td>
+                <td><strong>Aadarsh</strong></td>
+                <td class="label">Course/Internship:</td>
+                <td>Java Development (InternNova)</td>
+            </tr>
+            <tr>
+                <td class="label">College Name:</td>
+                <td><strong>Ganga Institute of Technology & Management</strong></td>
+                <td class="label">Branch:</td>
+                <td>Computer Science & Engineering</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- TASK 1 -->
+    <div class="task-card">
+        <div class="task-header">
+            <h2>Task 1: Java Setup & Hello World</h2>
+            <span class="marks-badge">10 Marks</span>
+        </div>
+        <div class="task-content">
+            <h3>Objective</h3>
+            <p>Create a Java program to display Name, College Name, Branch, and a Welcome Message.</p>
+            
+            <h3>Source Code (Task1.java)</h3>
+            <pre><code>public class Task1 {
+    public static void main(String[] args) {
+        System.out.println("==================================================");
+        System.out.println("            TASK 1: HELLO WORLD & DETAILS         ");
+        System.out.println("==================================================");
+        System.out.println("Name            : Aadarsh");
+        System.out.println("College Name    : Ganga Institute of Technology & Management");
+        System.out.println("Branch          : Computer Science & Engineering");
+        System.out.println("--------------------------------------------------");
+        System.out.println("Welcome Message : Welcome to Java Programming & Internship!");
+        System.out.println("==================================================");
+    }
+}</code></pre>
+
+            <h3>Terminal Output</h3>
+            <pre class="terminal-output"><code>==================================================
+            TASK 1: HELLO WORLD & DETAILS         
+==================================================
+Name            : Aadarsh
+College Name    : Ganga Institute of Technology & Management
+Branch          : Computer Science & Engineering
+--------------------------------------------------
+Welcome Message : Welcome to Java Programming & Internship!
+==================================================</code></pre>
+
+            <div class="screenshot-placeholder">
+                [ Screenshot of Task 1 Terminal Output ]
+            </div>
+        </div>
+    </div>
+
+    <!-- TASK 2 -->
+    <div class="task-card">
+        <div class="task-header">
+            <h2>Task 2: Variables & Data Types</h2>
+            <span class="marks-badge">20 Marks</span>
+        </div>
+        <div class="task-content">
+            <h3>Objective</h3>
+            <p>Declare and display variables with appropriate data types: Name (String), Age (int), Height (double), Weight (double), CGPA (double), Gender (char), and Is Student (boolean).</p>
+            
+            <h3>Source Code (Task2.java)</h3>
+            <pre><code>public class Task2 {
+    public static void main(String[] args) {
+        String name = "Aadarsh";              // String for text
+        int age = 20;                        // int for whole numbers
+        double height = 5.9;                 // double for decimal height
+        double weight = 65.5;                // double for decimal weight
+        double cgpa = 8.75;                  // double for decimal grades
+        char gender = 'M';                   // char for single character
+        boolean isStudent = true;            // boolean for true/false
+
+        System.out.println("==================================================");
+        System.out.println("         TASK 2: VARIABLES & DATA TYPES           ");
+        System.out.println("==================================================");
+        System.out.println("Name       (String)  : " + name);
+        System.out.println("Age        (int)     : " + age + " years");
+        System.out.println("Height     (double)  : " + height + " ft");
+        System.out.println("Weight     (double)  : " + weight + " kg");
+        System.out.println("CGPA       (double)  : " + cgpa);
+        System.out.println("Gender     (char)    : " + gender);
+        System.out.println("Is Student (boolean) : " + isStudent);
+        System.out.println("==================================================");
+    }
+}</code></pre>
+
+            <h3>Terminal Output</h3>
+            <pre class="terminal-output"><code>==================================================
+         TASK 2: VARIABLES & DATA TYPES           
+==================================================
+Name       (String)  : Aadarsh
+Age        (int)     : 20 years
+Height     (double)  : 5.9 ft
+Weight     (double)  : 65.5 kg
+CGPA       (double)  : 8.75
+Gender     (char)    : M
+Is Student (boolean) : true
+==================================================</code></pre>
+
+            <div class="screenshot-placeholder">
+                [ Screenshot of Task 2 Terminal Output ]
+            </div>
+        </div>
+    </div>
+
+    <!-- TASK 3 -->
+    <div class="task-card">
+        <div class="task-header">
+            <h2>Task 3: Input & Output using Scanner Class</h2>
+            <span class="marks-badge">20 Marks</span>
+        </div>
+        <div class="task-content">
+            <h3>Objective</h3>
+            <p>Accept user details (Full Name, Age, College Name, Branch, City) using <code>Scanner</code> and display in a clean summary.</p>
+            
+            <h3>Source Code (Task3.java)</h3>
+            <pre><code>import java.util.Scanner;
+
+public class Task3 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("==================================================");
+        System.out.println("   TASK 3: USER INPUT VIA SCANNER CLASS           ");
+        System.out.println("==================================================");
+
+        System.out.print("Enter your Full Name    : ");
+        String fullName = scanner.nextLine();
+
+        System.out.print("Enter your Age          : ");
+        int age = scanner.nextInt();
+        scanner.nextLine(); // Clear newline buffer
+
+        System.out.print("Enter your College Name : ");
+        String collegeName = scanner.nextLine();
+
+        System.out.print("Enter your Branch       : ");
+        String branch = scanner.nextLine();
+
+        System.out.print("Enter your City         : ");
+        String city = scanner.nextLine();
+
+        System.out.println("\n--------------------------------------------------");
+        System.out.println("              ENTERED DETAILS SUMMARY             ");
+        System.out.println("--------------------------------------------------");
+        System.out.println("Full Name    : " + fullName);
+        System.out.println("Age          : " + age);
+        System.out.println("College Name : " + collegeName);
+        System.out.println("Branch       : " + branch);
+        System.out.println("City         : " + city);
+        System.out.println("==================================================");
+
+        scanner.close();
+    }
+}</code></pre>
+
+            <h3>Terminal Output</h3>
+            <pre class="terminal-output"><code>==================================================
+   TASK 3: USER INPUT VIA SCANNER CLASS           
+==================================================
+Enter your Full Name    : Aadarsh
+Enter your Age          : 20
+Enter your College Name : Ganga Institute of Technology & Management
+Enter your Branch       : Computer Science & Engineering
+Enter your City         : Jhajjar / Delhi NCR
+
+--------------------------------------------------
+              ENTERED DETAILS SUMMARY             
+--------------------------------------------------
+Full Name    : Aadarsh
+Age          : 20
+College Name : Ganga Institute of Technology & Management
+Branch       : Computer Science & Engineering
+City         : Jhajjar / Delhi NCR
+==================================================</code></pre>
+
+            <div class="screenshot-placeholder">
+                [ Screenshot of Task 3 Terminal Output ]
+            </div>
+        </div>
+    </div>
+
+    <!-- TASK 4 -->
+    <div class="task-card">
+        <div class="task-header">
+            <h2>Task 4: Operators Practice (Calculator)</h2>
+            <span class="marks-badge">20 Marks</span>
+        </div>
+        <div class="task-content">
+            <h3>Objective</h3>
+            <p>Perform Addition, Subtraction, Multiplication, Division, and Modulus using two numbers entered by the user.</p>
+            
+            <h3>Source Code (Task4.java)</h3>
+            <pre><code>import java.util.Scanner;
+
+public class Task4 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("==================================================");
+        System.out.println("          TASK 4: ARITHMETIC OPERATORS            ");
+        System.out.println("==================================================");
+
+        System.out.print("Enter first number  : ");
+        double num1 = scanner.nextDouble();
+
+        System.out.print("Enter second number : ");
+        double num2 = scanner.nextDouble();
+
+        double sum = num1 + num2;
+        double diff = num1 - num2;
+        double prod = num1 * num2;
+
+        System.out.println("\n--------------------------------------------------");
+        System.out.println("                CALCULATION RESULTS               ");
+        System.out.println("--------------------------------------------------");
+        System.out.println("Addition       (" + num1 + " + " + num2 + ") = " + sum);
+        System.out.println("Subtraction    (" + num1 + " - " + num2 + ") = " + diff);
+        System.out.println("Multiplication (" + num1 + " * " + num2 + ") = " + prod);
+
+        if (num2 != 0) {
+            double div = num1 / num2;
+            double mod = num1 % num2;
+            System.out.println("Division       (" + num1 + " / " + num2 + ") = " + div);
+            System.out.println("Modulus        (" + num1 + " % " + num2 + ") = " + mod);
+        } else {
+            System.out.println("Division       : Error (Division by zero is not allowed)");
+            System.out.println("Modulus        : Error (Modulo by zero is not allowed)");
+        }
+        System.out.println("==================================================");
+
+        scanner.close();
+    }
+}</code></pre>
+
+            <h3>Terminal Output</h3>
+            <pre class="terminal-output"><code>==================================================
+          TASK 4: ARITHMETIC OPERATORS            
+==================================================
+Enter first number  : 25
+Enter second number : 4
+
+--------------------------------------------------
+                CALCULATION RESULTS               
+--------------------------------------------------
+Addition       (25.0 + 4.0) = 29.0
+Subtraction    (25.0 - 4.0) = 21.0
+Multiplication (25.0 * 4.0) = 100.0
+Division       (25.0 / 4.0) = 6.25
+Modulus        (25.0 % 4.0) = 1.0
+==================================================</code></pre>
+
+            <div class="screenshot-placeholder">
+                [ Screenshot of Task 4 Terminal Output ]
+            </div>
+        </div>
+    </div>
+
+    <!-- TASK 5 -->
+    <div class="task-card">
+        <div class="task-header">
+            <h2>Task 5: Type Casting</h2>
+            <span class="marks-badge">15 Marks</span>
+        </div>
+        <div class="task-content">
+            <h3>Objective</h3>
+            <p>Demonstrate Implicit Type Casting and Explicit Type Casting with before/after values and an explanation.</p>
+            
+            <h3>Source Code (Task5.java)</h3>
+            <pre><code>public class Task5 {
+    public static void main(String[] args) {
+        System.out.println("==================================================");
+        System.out.println("            TASK 5: TYPE CASTING IN JAVA          ");
+        System.out.println("==================================================");
+
+        // 1. Implicit Type Casting (Widening: int -> double)
+        int intVal = 100;
+        double implicitDoubleVal = intVal; // Automatic conversion
+
+        System.out.println("1. IMPLICIT CASTING (Widening):");
+        System.out.println("   Original value (int)    : " + intVal);
+        System.out.println("   Casted value (double)   : " + implicitDoubleVal);
+        System.out.println("   Note: Automatic conversion without data loss.\n");
+
+        // 2. Explicit Type Casting (Narrowing: double -> int)
+        double doubleVal = 99.78;
+        int explicitIntVal = (int) doubleVal; // Manual casting
+
+        System.out.println("2. EXPLICIT CASTING (Narrowing):");
+        System.out.println("   Original value (double) : " + doubleVal);
+        System.out.println("   Casted value (int)      : " + explicitIntVal);
+        System.out.println("   Note: Fractional part is truncated (data loss).");
+        System.out.println("==================================================");
+    }
+}</code></pre>
+
+            <h3>Terminal Output</h3>
+            <pre class="terminal-output"><code>==================================================
+            TASK 5: TYPE CASTING IN JAVA          
+==================================================
+1. IMPLICIT CASTING (Widening):
+   Original value (int)    : 100
+   Casted value (double)   : 100.0
+   Note: Automatic conversion without data loss.
+
+2. EXPLICIT CASTING (Narrowing):
+   Original value (double) : 99.78
+   Casted value (int)      : 99
+   Note: Fractional part is truncated (data loss).
+==================================================</code></pre>
+
+            <div class="screenshot-placeholder">
+                [ Screenshot of Task 5 Terminal Output ]
+            </div>
+
+            <div class="explanation-box">
+                <strong>Short Explanation (Difference between Implicit & Explicit Type Casting):</strong>
+                <ol>
+                    <li><strong>Implicit Type Casting (Widening):</strong> Happens automatically by the compiler when converting a smaller data type into a larger data type (e.g., <code>int</code> to <code>double</code>). Since the target type has larger memory, there is <strong>no data loss</strong>.</li>
+                    <li><strong>Explicit Type Casting (Narrowing):</strong> Must be performed manually by specifying the target type in parentheses (e.g., <code>(int) doubleVal</code>). It converts a larger data type into a smaller data type and can result in <strong>data truncation/precision loss</strong>.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- TASK 6 -->
+    <div class="task-card">
+        <div class="task-header">
+            <h2>Task 6: Java Fundamentals Practice</h2>
+            <span class="marks-badge">15 Marks</span>
+        </div>
+        <div class="task-content">
+            <h3>Objective</h3>
+            <p>Accept integer, float, and double values from user, perform implicit and explicit casting, and explain where type casting is commonly applied.</p>
+            
+            <h3>Source Code (Task6.java)</h3>
+            <pre><code>import java.util.Scanner;
+
+public class Task6 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("==================================================");
+        System.out.println("    TASK 6: USER INPUT & TYPE CASTING PRACTICE    ");
+        System.out.println("==================================================");
+
+        System.out.print("Enter an integer value (e.g., 25)    : ");
+        int userInt = scanner.nextInt();
+
+        System.out.print("Enter a float value (e.g., 14.5)     : ");
+        float userFloat = scanner.nextFloat();
+
+        System.out.print("Enter a double value (e.g., 89.9876) : ");
+        double userDouble = scanner.nextDouble();
+
+        System.out.println("\n--------------------------------------------------");
+        System.out.println("               ORIGINAL INPUT VALUES              ");
+        System.out.println("--------------------------------------------------");
+        System.out.println("Integer value : " + userInt);
+        System.out.println("Float value   : " + userFloat);
+        System.out.println("Double value  : " + userDouble);
+
+        // 1. Implicit Type Casting (Widening)
+        double intToDouble = userInt;
+        double floatToDouble = userFloat;
+
+        System.out.println("\n--------------------------------------------------");
+        System.out.println("          IMPLICIT CASTING (WIDENING)             ");
+        System.out.println("--------------------------------------------------");
+        System.out.println("int (" + userInt + ") -> double                 : " + intToDouble);
+        System.out.println("float (" + userFloat + ") -> double             : " + floatToDouble);
+
+        // 2. Explicit Type Casting (Narrowing)
+        int doubleToInt = (int) userDouble;
+        int floatToInt = (int) userFloat;
+
+        System.out.println("\n--------------------------------------------------");
+        System.out.println("          EXPLICIT CASTING (NARROWING)            ");
+        System.out.println("--------------------------------------------------");
+        System.out.println("double (" + userDouble + ") -> int (explicit) : " + doubleToInt);
+        System.out.println("float (" + userFloat + ") -> int (explicit)   : " + floatToInt);
+        System.out.println("==================================================");
+
+        scanner.close();
+    }
+}</code></pre>
+
+            <h3>Terminal Output</h3>
+            <pre class="terminal-output"><code>==================================================
+    TASK 6: USER INPUT & TYPE CASTING PRACTICE    
+==================================================
+Enter an integer value (e.g., 25)    : 50
+Enter a float value (e.g., 14.5)     : 12.5
+Enter a double value (e.g., 89.9876) : 99.87
+
+--------------------------------------------------
+               ORIGINAL INPUT VALUES              
+--------------------------------------------------
+Integer value : 50
+Float value   : 12.5
+Double value  : 99.87
+
+--------------------------------------------------
+          IMPLICIT CASTING (WIDENING)             
+--------------------------------------------------
+int (50) -> double                 : 50.0
+float (12.5) -> double             : 12.5
+
+--------------------------------------------------
+          EXPLICIT CASTING (NARROWING)            
+--------------------------------------------------
+double (99.87) -> int (explicit) : 99
+float (12.5) -> int (explicit)   : 12
+==================================================</code></pre>
+
+            <div class="screenshot-placeholder">
+                [ Screenshot of Task 6 Terminal Output ]
+            </div>
+
+            <div class="explanation-box">
+                <strong>Where Type Casting is Commonly Used in Java Programming:</strong>
+                <ul>
+                    <li><strong>Arithmetic Calculations:</strong> Preventing integer truncation in division (e.g., <code>(double) num1 / num2</code>).</li>
+                    <li><strong>Standard Java Math Library:</strong> Methods like <code>Math.round()</code> and <code>Math.sqrt()</code> return floating points that often require casting back to integer types.</li>
+                    <li><strong>Object Polymorphism & Inheritance:</strong> Downcasting general parent/interface object references back to specific child objects.</li>
+                    <li><strong>Database & API Integrations:</strong> Converting generic numeric fields or collections into strict primitive types.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- SUBMISSION SUMMARY -->
+    <div class="task-card">
+        <div class="task-header">
+            <h2>Evaluation & Submission Checklist</h2>
+            <span class="marks-badge" style="background:#0056b3;">Total: 100 Marks</span>
+        </div>
+        <div class="task-content">
+            <table class="checklist-table">
+                <thead>
+                    <tr>
+                        <th>Criteria</th>
+                        <th>Marks</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Java Setup & Hello World</td><td>10</td><td>&#10004; Completed</td></tr>
+                    <tr><td>Variables & Data Types</td><td>20</td><td>&#10004; Completed</td></tr>
+                    <tr><td>Input & Output (Scanner Class)</td><td>20</td><td>&#10004; Completed</td></tr>
+                    <tr><td>Operators Practice</td><td>20</td><td>&#10004; Completed</td></tr>
+                    <tr><td>Type Casting (+ Explanation)</td><td>15</td><td>&#10004; Completed</td></tr>
+                    <tr><td>Java Fundamentals Practice (+ Note)</td><td>15</td><td>&#10004; Completed</td></tr>
+                    <tr style="font-weight: bold; background-color: #f1f8ff;">
+                        <td>Total Marks</td>
+                        <td>100</td>
+                        <td>Ready for Submission</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
