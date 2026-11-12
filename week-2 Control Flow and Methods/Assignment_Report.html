@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 2 Assignment: Control Flow & Methods - Aadarsh</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #24292e;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: #fff;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #0056b3;
+            margin: 0 0 10px 0;
+            font-size: 26px;
+        }
+        .header p {
+            margin: 4px 0;
+            font-size: 14px;
+            color: #555;
+        }
+        .student-box {
+            background-color: #f4f8fc;
+            border: 1px solid #b8daff;
+            border-radius: 8px;
+            padding: 15px 25px;
+            margin-bottom: 30px;
+        }
+        .student-box table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .student-box td {
+            padding: 6px 10px;
+            font-size: 14px;
+        }
+        .student-box td.label {
+            font-weight: bold;
+            color: #004085;
+            width: 25%;
+        }
+        .task-card {
+            border: 1px solid #e1e4e8;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            page-break-inside: avoid;
+            background: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+            overflow: hidden;
+        }
+        .task-header {
+            background: #f6f8fa;
+            border-bottom: 1px solid #e1e4e8;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .task-header h2 {
+            margin: 0;
+            font-size: 18px;
+            color: #24292e;
+        }
+        .marks-badge {
+            background: #28a745;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .task-content {
+            padding: 20px;
+        }
+        .task-content h3 {
+            font-size: 14px;
+            color: #0056b3;
+            margin-top: 15px;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        pre {
+            background-color: #272822;
+            color: #f8f8f2;
+            padding: 14px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 12.5px;
+            line-height: 1.45;
+        }
+        .terminal-output {
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            border-left: 4px solid #007acc;
+        }
+        .screenshot-placeholder {
+            border: 2px dashed #007acc;
+            background-color: #f0f7ff;
+            border-radius: 6px;
+            padding: 25px;
+            text-align: center;
+            color: #0056b3;
+            font-size: 13px;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+        .explanation-box {
+            background-color: #fff9e6;
+            border-left: 4px solid #ffc107;
+            padding: 12px 16px;
+            border-radius: 4px;
+            font-size: 13.5px;
+            color: #664d03;
+            margin-top: 12px;
+        }
+        .checklist-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 13.5px;
+        }
+        .checklist-table th, .checklist-table td {
+            border: 1px solid #dee2e6;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        .checklist-table th {
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        @media print {
+            body {
+                padding: 0;
+            }
+            .task-card {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Week 2 Assignment: Control Flow &amp; Methods</h1>
+        <p><strong>Course:</strong> Java Programming Internship (InternNova) &nbsp;|&nbsp; <strong>Duration:</strong> 1 Week &nbsp;|&nbsp; <strong>Total Marks:</strong> 100</p>
+    </div>
+
+    <div class="student-box">
+        <table>
+            <tr>
+                <td class="label">Student Name:</td>
+                <td><strong>Aadarsh</strong></td>
+                <td class="label">Course/Internship:</td>
+                <td>Java Development (InternNova)</td>
+            </tr>
+            <tr>
+                <td class="label">College Name:</td>
+                <td><strong>Ganga Institute of Technology &amp; Management</strong></td>
+                <td class="label">Branch:</td>
+                <td>Computer Science &amp; Engineering</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- TASK 1 -->
+    <div class="task-card">
+        <div class="task-header">
+            <h2>Task 1: Conditional Statements — Student Result</h2>
+            <span class="marks-badge">15 Marks</span>
+        </div>
+        <div class="task-content">
+            <h3>Objective</h3>
+            <p>Take marks in 3 subjects as input, calculate total and percentage, and determine the result using conditional statements.</p>
+            
+            <h3>Source Code (Task1.java)</h3>
+            <pre><code>import java.util.Scanner;
+
+public class Task1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("==================================================");
+        System.out.println("       TASK 1: STUDENT RESULT CALCULATOR          ");
+        System.out.println("==================================================");
+
+        System.out.print("Enter Student Name           : ");
+        String studentName = scanner.nextLine();
+
+        System.out.print("Enter Marks in Subject 1 (0-100): ");
+        double sub1 = scanner.nextDouble();
+
+        System.out.print("Enter Marks in Subject 2 (0-100): ");
+        double sub2 = scanner.nextDouble();
+
+        System.out.print("Enter Marks in Subject 3 (0-100): ");
+        double sub3 = scanner.nextDouble();
+
+        double totalMarks = sub1 + sub2 + sub3;
+        double percentage = (totalMarks / 300.0) * 100.0;
+
+        String result;
+        if (sub1 &lt; 0 || sub1 &gt; 100 || sub2 &lt; 0 || sub2 &gt; 100 || sub3 &lt; 0 || sub3 &gt; 100) {
+            result = "Invalid Marks Entered (Must be between 0 and 100)";
+        } else if (sub1 &lt; 33 || sub2 &lt; 33 || sub3 &lt; 33) {
+            result = "FAIL (Scored below 33 in one or more subjects)";
+        } else if (percentage &gt;= 75) {
+            result = "PASS - Distinction";
+        } else if (percentage &gt;= 60) {
+            result = "PASS - First Division";
+        } else if (percentage &gt;= 45) {
+            result = "PASS - Second Division";
+        } else if (percentage &gt;= 33) {
+            result = "PASS - Third Division";
+        } else {
+            result = "FAIL";
+        }
+
+        System.out.println("\n--------------------------------------------------");
+        System.out.println("                 STUDENT REPORT CARD              ");
+        System.out.println("--------------------------------------------------");
+        System.out.println("Student Name : " + studentName);
+        System.out.printf("Total Marks  : %.2f / 300.00%n", totalMarks);
+        System.out.printf("Percentage   : %.2f%%%n", percentage);
+        System.out.println("Result       : " + result);
+        System.out.println("==================================================");
+
+        scanner.close();
+    }
+}</code></pre>
+
+            <h3>Terminal Output</h3>
+            <pre class="terminal-output"><code>==================================================
+       TASK 1: STUDENT RESULT CALCULATOR          
+==================================================
+Enter Student Name           : Aadarsh
+Enter Marks in Subject 1 (0-100): 85
+Enter Marks in Subject 2 (0-100): 90
+Enter Marks in Subject 3 (0-100): 80
+
+--------------------------------------------------
+                 STUDENT REPORT CARD              
+--------------------------------------------------
+Student Name : Aadarsh
+Total Marks  : 255.00 / 300.00
+Percentage   : 85.00%
+Result       : PASS - Distinction
+==================================================</code></pre>
+
+            <div class="screenshot-placeholder">[ Screenshot of Task 1 Terminal Output ]</div>
+
+            <div class="explanation-box">
+                <strong>Brief Explanation:</strong> Reads student name and 3 subject marks using <code>Scanner</code>, computes total and percentage, and uses an <code>if-else if-else</code> conditional chain to validate inputs and classify the result into Distinction, Divisions, or Fail.
+            </div>
+        </div>
+    </div>
+
+    <!-- TASK 2 -->
+    <div class="task-card">
+        <div class="task-header">
+            <h2>Task 2: Loops — Number Practice</h2>
+            <span class="marks-badge">20 Marks</span>
+        </div>
+        <div class="task-content">
+            <h3>Objective</h3>
+            <p>Use <code>for</code>, <code>while</code>, and <code>do-while</code> loops to print 1–100, even numbers, odd numbers, and calculate the sum from 1 to 100.</p>
+            
+            <h3>Source Code (Task2.java)</h3>
+            <pre><code>public class Task2 {
+    public static void main(String[] args) {
+        System.out.println("==================================================");
+        System.out.println("            TASK 2: LOOPS NUMBER PRACTICE         ");
+        System.out.println("==================================================");
+
+        System.out.println("\n1. Numbers from 1 to 100 (for loop):");
+        System.out.println("--------------------------------------------------");
+        for (int i = 1; i &lt;= 100; i++) {
+            System.out.printf("%4d", i);
+            if (i % 10 == 0) System.out.println();
+        }
+
+        System.out.println("\n2. Even numbers between 1 and 100 (while loop):");
+        System.out.println("--------------------------------------------------");
+        int even = 2, evenCount = 0;
+        while (even &lt;= 100) {
+            System.out.printf("%4d", even);
+            evenCount++;
+            if (evenCount % 10 == 0) System.out.println();
+            even += 2;
+        }
+
+        System.out.println("\n3. Odd numbers between 1 and 100 (do-while loop):");
+        System.out.println("--------------------------------------------------");
+        int odd = 1, oddCount = 0;
+        do {
+            System.out.printf("%4d", odd);
+            oddCount++;
+            if (oddCount % 10 == 0) System.out.println();
+            odd += 2;
+        } while (odd &lt;= 100);
+
+        int sum = 0;
+        for (int i = 1; i &lt;= 100; i++) {
+            sum += i;
+        }
+
+        System.out.println("\n--------------------------------------------------");
+        System.out.println("4. Sum of numbers from 1 to 100 = " + sum);
+        System.out.println("==================================================");
+    }
+}</code></pre>
+
+            <h3>Terminal Output</h3>
+            <pre class="terminal-output"><code>==================================================
+            TASK 2: LOOPS NUMBER PRACTICE         
+==================================================
+
+1. Numbers from 1 to 100 (for loop):
+--------------------------------------------------
+   1   2   3   4   5   6   7   8   9  10
+  ...
+  91  92  93  94  95  96  97  98  99 100
+
+2. Even numbers between 1 and 100 (while loop):
+--------------------------------------------------
+   2   4   6   8  10  12  14  16  18  20
+  ...
+  82  84  86  88  90  92  94  96  98 100
+
+3. Odd numbers between 1 and 100 (do-while loop):
+--------------------------------------------------
+   1   3   5   7   9  11  13  15  17  19
+  ...
+  81  83  85  87  89  91  93  95  97  99
+
+--------------------------------------------------
+4. Sum of numbers from 1 to 100 = 5050
+==================================================</code></pre>
+
+            <div class="screenshot-placeholder">[ Screenshot of Task 2 Terminal Output ]</div>
+
+            <div class="explanation-box">
+                <strong>Brief Explanation:</strong> Demonstrates Java's three looping structures: a <code>for</code> loop prints 1 to 100 and sums them to 5050, a <code>while</code> loop prints all even numbers, and a <code>do-while</code> loop prints all odd numbers in formatted 10-column grids.
+            </div>
+        </div>
+    </div>
+
+    <!-- TASK 3 -->
+    <div class="task-card">
+        <div class="task-header">
+            <h2>Task 3: Methods — Calculator</h2>
+            <span class="marks-badge">20 Marks</span>
+        </div>
+        <div class="task-content">
+            <h3>Objective</h3>
+            <p>Create separate methods for Addition, Subtraction, Multiplication, Division, and Modulus, and call them based on user input.</p>
+            
+            <h3>Source Code (Task3.java)</h3>
+            <pre><code>import java.util.Scanner;
+
+public class Task3 {
+    public static double add(double a, double b) { return a + b; }
+    public static double subtract(double a, double b) { return a - b; }
+    public static double multiply(double a, double b) { return a * b; }
+    public static double divide(double a, double b) { return a / b; }
+    public static double modulus(double a, double b) { return a % b; }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("==================================================");
+        System.out.println("        TASK 3: METHOD-BASED CALCULATOR           ");
+        System.out.println("==================================================");
+
+        System.out.print("Enter first number  : ");
+        double num1 = scanner.nextDouble();
+
+        System.out.print("Enter second number : ");
+        double num2 = scanner.nextDouble();
+
+        System.out.println("\nChoose an operation:");
+        System.out.println("1. Addition (+)  2. Subtraction (-)  3. Multiplication (*)");
+        System.out.println("4. Division (/)  5. Modulus (%)      6. Perform All Operations");
+        System.out.print("Enter your choice (1-6): ");
+        int choice = scanner.nextInt();
+
+        System.out.println("\n--------------------------------------------------");
+        System.out.println("                     RESULTS                      ");
+        System.out.println("--------------------------------------------------");
+
+        switch (choice) {
+            case 1: System.out.println("Addition       : " + add(num1, num2)); break;
+            case 2: System.out.println("Subtraction    : " + subtract(num1, num2)); break;
+            case 3: System.out.println("Multiplication : " + multiply(num1, num2)); break;
+            case 4:
+                if (num2 != 0) System.out.println("Division : " + divide(num1, num2));
+                else System.out.println("Division : Error (Cannot divide by zero)");
+                break;
+            case 5:
+                if (num2 != 0) System.out.println("Modulus : " + modulus(num1, num2));
+                else System.out.println("Modulus : Error (Cannot find modulus by zero)");
+                break;
+            case 6:
+                System.out.println("Addition       : " + num1 + " + " + num2 + " = " + add(num1, num2));
+                System.out.println("Subtraction    : " + num1 + " - " + num2 + " = " + subtract(num1, num2));
+                System.out.println("Multiplication : " + num1 + " * " + num2 + " = " + multiply(num1, num2));
+                if (num2 != 0) {
+                    System.out.println("Division       : " + num1 + " / " + num2 + " = " + divide(num1, num2));
+                    System.out.println("Modulus        : " + num1 + " % " + num2 + " = " + modulus(num1, num2));
+                } else {
+                    System.out.println("Division / Modulus : Error (Zero divisor)");
+                }
+                break;
+            default:
+                System.out.println("Invalid choice! Please select between 1 and 6.");
+        }
+
+        System.out.println("==================================================");
+        scanner.close();
+    }
+}</code></pre>
+
+            <h3>Terminal Output</h3>
+            <pre class="terminal-output"><code>==================================================
+        TASK 3: METHOD-BASED CALCULATOR           
+==================================================
+Enter first number  : 25
+Enter second number : 4
+
+Choose an operation:
+1. Addition (+)
+2. Subtraction (-)
+3. Multiplication (*)
+4. Division (/)
+5. Modulus (%)
+6. Perform All Operations
+Enter your choice (1-6): 6
+
+--------------------------------------------------
+                     RESULTS                      
+--------------------------------------------------
+Addition       : 25.0 + 4.0 = 29.0
+Subtraction    : 25.0 - 4.0 = 21.0
+Multiplication : 25.0 * 4.0 = 100.0
+Division       : 25.0 / 4.0 = 6.25
+Modulus        : 25.0 % 4.0 = 1.0
+==================================================</code></pre>
+
+            <div class="screenshot-placeholder">[ Screenshot of Task 3 Terminal Output ]</div>
+
+            <div class="explanation-box">
+                <strong>Brief Explanation:</strong> Breaks the calculator logic into five dedicated static methods (<code>add</code>, <code>subtract</code>, <code>multiply</code>, <code>divide</code>, <code>modulus</code>) and uses a <code>switch-case</code> menu to invoke the selected operation with zero-division validation.
+            </div>
+        </div>
+    </div>
+
+    <!-- TASK 4 -->
+    <div class="task-card">
+        <div class="task-header">
+            <h2>Task 4: Method Parameters &amp; Return Types</h2>
+            <span class="marks-badge">15 Marks</span>
+        </div>
+        <div class="task-content">
+            <h3>Objective</h3>
+            <p>Create parameterized methods returning square, cube, average of three numbers, and maximum of two numbers.</p>
+            
+            <h3>Source Code (Task4.java)</h3>
+            <pre><code>import java.util.Scanner;
+
+public class Task4 {
+    public static double findSquare(double num) { return num * num; }
+    public static double findCube(double num) { return num * num * num; }
+    public static double findAverage(double a, double b, double c) { return (a + b + c) / 3.0; }
+    public static double findMaximum(double a, double b) { return (a &gt; b) ? a : b; }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("==================================================");
+        System.out.println("    TASK 4: METHOD PARAMETERS &amp; RETURN TYPES      ");
+        System.out.println("==================================================");
+
+        System.out.print("Enter a number for Square &amp; Cube : ");
+        double num = scanner.nextDouble();
+
+        System.out.print("Enter 3 numbers for Average      : ");
+        double n1 = scanner.nextDouble();
+        double n2 = scanner.nextDouble();
+        double n3 = scanner.nextDouble();
+
+        System.out.print("Enter 2 numbers for Maximum      : ");
+        double x = scanner.nextDouble();
+        double y = scanner.nextDouble();
+
+        double squareResult = findSquare(num);
+        double cubeResult = findCube(num);
+        double avgResult = findAverage(n1, n2, n3);
+        double maxResult = findMaximum(x, y);
+
+        System.out.println("\n--------------------------------------------------");
+        System.out.println("                 METHOD RESULTS                   ");
+        System.out.println("--------------------------------------------------");
+        System.out.printf("Square of %.2f              : %.2f%n", num, squareResult);
+        System.out.printf("Cube of %.2f                : %.2f%n", num, cubeResult);
+        System.out.printf("Average of (%.1f, %.1f, %.1f) : %.2f%n", n1, n2, n3, avgResult);
+        System.out.printf("Maximum of (%.1f, %.1f)       : %.2f%n", x, y, maxResult);
+        System.out.println("==================================================");
+
+        scanner.close();
+    }
+}</code></pre>
+
+            <h3>Terminal Output</h3>
+            <pre class="terminal-output"><code>==================================================
+    TASK 4: METHOD PARAMETERS &amp; RETURN TYPES      
+==================================================
+Enter a number for Square &amp; Cube : 5
+Enter 3 numbers for Average      : 10 20 30
+Enter 2 numbers for Maximum      : 45 78
+
+--------------------------------------------------
+                 METHOD RESULTS                   
+--------------------------------------------------
+Square of 5.00              : 25.00
+Cube of 5.00                : 125.00
+Average of (10.0, 20.0, 30.0) : 20.00
+Maximum of (45.0, 78.0)       : 78.00
+==================================================</code></pre>
+
+            <div class="screenshot-placeholder">[ Screenshot of Task 4 Terminal Output ]</div>
+
+            <div class="explanation-box">
+                <strong>Brief Explanation:</strong> Defines four parameterized methods accepting 1, 2, or 3 arguments and returning <code>double</code> results back to <code>main()</code>, illustrating modular design and data passing in Java.
+            </div>
+        </div>
+    </div>
+
+    <!-- TASK 5 -->
+    <div class="task-card">
+        <div class="task-header">
+            <h2>Task 5: 1D Array — Student Marks</h2>
+            <span class="marks-badge">15 Marks</span>
+        </div>
+        <div class="task-content">
+            <h3>Objective</h3>
+            <p>Store marks of 5 students in a 1D array, display them, and calculate total, average, highest, and lowest marks.</p>
+            
+            <h3>Source Code (Task5.java)</h3>
+            <pre><code>import java.util.Scanner;
+
+public class Task5 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] marks = new int[5];
+
+        System.out.println("==================================================");
+        System.out.println("        TASK 5: 1D ARRAY - STUDENT MARKS          ");
+        System.out.println("==================================================");
+
+        System.out.println("Enter marks for 5 students:");
+        for (int i = 0; i &lt; marks.length; i++) {
+            System.out.print("  Student " + (i + 1) + " marks : ");
+            marks[i] = scanner.nextInt();
+        }
+
+        int total = 0, highest = marks[0], lowest = marks[0];
+
+        System.out.println("\n--------------------------------------------------");
+        System.out.println("               ENTERED STUDENT MARKS              ");
+        System.out.println("--------------------------------------------------");
+        for (int i = 0; i &lt; marks.length; i++) {
+            System.out.println("Student " + (i + 1) + " : " + marks[i]);
+            total += marks[i];
+            if (marks[i] &gt; highest) highest = marks[i];
+            if (marks[i] &lt; lowest) lowest = marks[i];
+        }
+
+        double average = (double) total / marks.length;
+
+        System.out.println("\n--------------------------------------------------");
+        System.out.println("               MARKS STATISTICS                   ");
+        System.out.println("--------------------------------------------------");
+        System.out.println("Total Marks   : " + total);
+        System.out.printf("Average Marks : %.2f%n", average);
+        System.out.println("Highest Marks : " + highest);
+        System.out.println("Lowest Marks  : " + lowest);
+        System.out.println("==================================================");
+
+        scanner.close();
+    }
+}</code></pre>
+
+            <h3>Terminal Output</h3>
+            <pre class="terminal-output"><code>==================================================
+        TASK 5: 1D ARRAY - STUDENT MARKS          
+==================================================
+Enter marks for 5 students:
+  Student 1 marks : 78
+  Student 2 marks : 85
+  Student 3 marks : 92
+  Student 4 marks : 64
+  Student 5 marks : 88
+
+--------------------------------------------------
+               ENTERED STUDENT MARKS              
+--------------------------------------------------
+Student 1 : 78
+Student 2 : 85
+Student 3 : 92
+Student 4 : 64
+Student 5 : 88
+
+--------------------------------------------------
+               MARKS STATISTICS                   
+--------------------------------------------------
+Total Marks   : 407
+Average Marks : 81.40
+Highest Marks : 92
+Lowest Marks  : 64
+==================================================</code></pre>
+
+            <div class="screenshot-placeholder">[ Screenshot of Task 5 Terminal Output ]</div>
+
+            <div class="explanation-box">
+                <strong>Brief Explanation:</strong> Uses a 1D integer array of length 5 to store user-entered student marks, then iterates through the array to print all entries and compute total, average (with explicit double cast), highest, and lowest marks.
+            </div>
+        </div>
+    </div>
+
+    <!-- TASK 6 -->
+    <div class="task-card">
+        <div class="task-header">
+            <h2>Task 6: 2D Array — Matrix Operations</h2>
+            <span class="marks-badge">15 Marks</span>
+        </div>
+        <div class="task-content">
+            <h3>Objective</h3>
+            <p>Use a 2D array to store a 3 &times; 3 matrix, accept elements from user, display the matrix, and calculate the sum of all elements.</p>
+            
+            <h3>Source Code (Task6.java)</h3>
+            <pre><code>import java.util.Scanner;
+
+public class Task6 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int rows = 3, cols = 3;
+        int[][] matrix = new int[rows][cols];
+
+        System.out.println("==================================================");
+        System.out.println("       TASK 6: 2D ARRAY - 3x3 MATRIX              ");
+        System.out.println("==================================================");
+
+        System.out.println("Enter elements for a 3x3 matrix:");
+        for (int i = 0; i &lt; rows; i++) {
+            for (int j = 0; j &lt; cols; j++) {
+                System.out.print("  Element [" + i + "][" + j + "] : ");
+                matrix[i][j] = scanner.nextInt();
+            }
+        }
+
+        int sum = 0;
+        System.out.println("\n--------------------------------------------------");
+        System.out.println("               3x3 MATRIX DISPLAY                 ");
+        System.out.println("--------------------------------------------------");
+        for (int i = 0; i &lt; rows; i++) {
+            System.out.print("  | ");
+            for (int j = 0; j &lt; cols; j++) {
+                System.out.printf("%4d ", matrix[i][j]);
+                sum += matrix[i][j];
+            }
+            System.out.println(" |");
+        }
+
+        System.out.println("\n--------------------------------------------------");
+        System.out.println("Sum of all matrix elements = " + sum);
+        System.out.println("==================================================");
+
+        scanner.close();
+    }
+}</code></pre>
+
+            <h3>Terminal Output</h3>
+            <pre class="terminal-output"><code>==================================================
+       TASK 6: 2D ARRAY - 3x3 MATRIX              
+==================================================
+Enter elements for a 3x3 matrix:
+  Element [0][0] : 1
+  Element [0][1] : 2
+  Element [0][2] : 3
+  Element [1][0] : 4
+  Element [1][1] : 5
+  Element [1][2] : 6
+  Element [2][0] : 7
+  Element [2][1] : 8
+  Element [2][2] : 9
+
+--------------------------------------------------
+               3x3 MATRIX DISPLAY                 
+--------------------------------------------------
+  |    1    2    3  |
+  |    4    5    6  |
+  |    7    8    9  |
+
+--------------------------------------------------
+Sum of all matrix elements = 45
+==================================================</code></pre>
+
+            <div class="screenshot-placeholder">[ Screenshot of Task 6 Terminal Output ]</div>
+
+            <div class="explanation-box">
+                <strong>Brief Explanation:</strong> Declares a <code>3&times;3</code> 2D array (<code>int[3][3]</code>) and uses nested <code>for</code> loops (row &times; column) to populate matrix elements, print a grid-aligned matrix representation, and sum all 9 elements.
+            </div>
+        </div>
+    </div>
+
+    <!-- SUBMISSION SUMMARY -->
+    <div class="task-card">
+        <div class="task-header">
+            <h2>Evaluation &amp; Submission Checklist</h2>
+            <span class="marks-badge" style="background:#0056b3;">Total: 100 Marks</span>
+        </div>
+        <div class="task-content">
+            <table class="checklist-table">
+                <thead>
+                    <tr>
+                        <th>Task / Criteria</th>
+                        <th>Marks</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Task 1: Conditional Statements &mdash; Student Result</td><td>15</td><td>&#10004; Completed</td></tr>
+                    <tr><td>Task 2: Loops &mdash; Number Practice</td><td>20</td><td>&#10004; Completed</td></tr>
+                    <tr><td>Task 3: Methods &mdash; Calculator</td><td>20</td><td>&#10004; Completed</td></tr>
+                    <tr><td>Task 4: Method Parameters &amp; Return Types</td><td>15</td><td>&#10004; Completed</td></tr>
+                    <tr><td>Task 5: 1D Array &mdash; Student Marks</td><td>15</td><td>&#10004; Completed</td></tr>
+                    <tr><td>Task 6: 2D Array &mdash; Matrix Operations</td><td>15</td><td>&#10004; Completed</td></tr>
+                    <tr style="font-weight: bold; background-color: #f1f8ff;">
+                        <td>Total Marks</td>
+                        <td>100</td>
+                        <td>Ready for Submission</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
+
