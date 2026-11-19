@@ -28,13 +28,23 @@
 - **Assignment Report** (`Assignment_Report.md`, `Assignment_Report.html`) - Full assignment documentation with explanations.
 - **Helper Runner** (`run_all.bat`) - Interactive console menu to compile and run any task.
 
+### 📂 [Week 3: Object-Oriented Programming](./week-3%20Object%20Oriented%20Programming/)
+- **Task 1: Classes & Objects — Student Management** (`Task1.java`) - `Student` class with attributes (Name, Roll Number, Branch, CGPA) and formatted display.
+- **Task 2: Constructors — Employee Information** (`Task2.java`) - Default and parameterized constructors for employee records.
+- **Task 3: "this" & "static" — Bank Account** (`Task3.java`) - Demonstrates `this` for variable shadowing and a `static` counter for total accounts.
+- **Task 4: Inheritance — Employee Management** (`Task4.java`) - Base class `Employee` with derived classes `Developer` and `Manager` using `extends` and `super`.
+- **Task 5: Polymorphism — Overloading & Overriding** (`Task5.java`) - Method overloading (`calculate`) and method overriding (`Vehicle`, `Car`, `Bike`).
+- **Task 6: Encapsulation & Abstraction — Banking System** (`Task6.java`) - Encapsulated `BankAccount` (private fields, getters/setters) and abstract `Account` with concrete `SavingsAccount`.
+- **Assignment Report** (`Assignment_Report.md`, `Assignment_Report.html`) - Full assignment documentation with required explanations.
+- **Helper Runner** (`run_all.bat`) - Interactive console menu to compile and run any task.
+
 ---
 
 ## 🚀 How to Run the Programs
 
 ```powershell
-# Navigate to a week directory (e.g., Week 2)
-cd "week-2 Control Flow and Methods"
+# Navigate to a week directory (e.g., Week 3)
+cd "week-3 Object Oriented Programming"
 
 # Compile all tasks
 javac Task1.java Task2.java Task3.java Task4.java Task5.java Task6.java

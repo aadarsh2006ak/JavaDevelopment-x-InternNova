@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 3 Assignment: Object-Oriented Programming in Java - Aadarsh</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #24292e;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: #fff;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #0056b3;
+            margin: 0 0 10px 0;
+            font-size: 26px;
+        }
+        .header p {
+            margin: 4px 0;
+            font-size: 14px;
+            color: #555;
+        }
+        .student-box {
+            background-color: #f4f8fc;
+            border: 1px solid #b8daff;
+            border-radius: 8px;
+            padding: 15px 25px;
+            margin-bottom: 30px;
+        }
+        .student-box table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .student-box td {
+            padding: 6px 10px;
+            font-size: 14px;
+        }
+        .student-box td.label {
+            font-weight: bold;
+            color: #004085;
+            width: 25%;
+        }
+        .task-card {
+            border: 1px solid #e1e4e8;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            page-break-inside: avoid;
+            background: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+            overflow: hidden;
+        }
+        .task-header {
+            background: #f6f8fa;
+            border-bottom: 1px solid #e1e4e8;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .task-header h2 {
+            margin: 0;
+            font-size: 18px;
+            color: #24292e;
+        }
+        .marks-badge {
+            background: #28a745;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .task-content {
+            padding: 20px;
+        }
+        .task-content h3 {
+            font-size: 14px;
+            color: #0056b3;
+            margin-top: 15px;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        pre {
+            background-color: #272822;
+            color: #f8f8f2;
+            padding: 14px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 12.5px;
+            line-height: 1.45;
+        }
+        .terminal-output {
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            border-left: 4px solid #007acc;
+        }
+        .screenshot-placeholder {
+            border: 2px dashed #007acc;
+            background-color: #f0f7ff;
+            border-radius: 6px;
+            padding: 25px;
+            text-align: center;
+            color: #0056b3;
+            font-size: 13px;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+        .explanation-box {
+            background-color: #fff9e6;
+            border-left: 4px solid #ffc107;
+            padding: 12px 16px;
+            border-radius: 4px;
+            font-size: 13.5px;
+            color: #664d03;
+            margin-top: 12px;
+        }
+        .checklist-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 13.5px;
+        }
+        .checklist-table th, .checklist-table td {
+            border: 1px solid #dee2e6;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        .checklist-table th {
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        @media print {
+            body {
+                padding: 0;
+            }
+            .task-card {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Week 3 Assignment: Object-Oriented Programming in Java</h1>
+        <p><strong>Course:</strong> Java Programming Internship (InternNova) &nbsp;|&nbsp; <strong>Duration:</strong> 1 Week &nbsp;|&nbsp; <strong>Total Marks:</strong> 100</p>
+    </div>
+
+    <div class="student-box">
+        <table>
+            <tr>
+                <td class="label">Student Name:</td>
+                <td><strong>Aadarsh</strong></td>
+                <td class="label">Course/Internship:</td>
+                <td>Java Development (InternNova)</td>
+            </tr>
+            <tr>
+                <td class="label">College Name:</td>
+                <td><strong>Ganga Institute of Technology &amp; Management</strong></td>
+                <td class="label">Branch:</td>
+                <td>Computer Science &amp; Engineering</td>
+            </tr>
+            <tr>
+                <td class="label">Google Drive Link:</td>
+                <td colspan="3"><a href="#" style="color: #0056b3; text-decoration: underline;">[PASTE YOUR GOOGLE DRIVE SHARED FOLDER LINK HERE]</a></td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- TASK 1 -->
+    <div class="task-card">
+        <div class="task-header">
+            <h2>Task 1: Classes &amp; Objects — Student Management</h2>
+            <span class="marks-badge">15 Marks</span>
+        </div>
+        <div class="task-content">
+            <h3>Objective</h3>
+            <p>Create a <code>Student</code> class with attributes (Name, Roll Number, Branch, CGPA), instantiate at least 3 student objects, and display their information in a formatted table.</p>
+            
+            <h3>Source Code (Task1.java)</h3>
+            <pre><code>public class Task1 {
+
+    static class Student {
+        String name;
+        int rollNumber;
+        String branch;
+        double cgpa;
+
+        public void displayDetails(int index) {
+            System.out.printf("| %-5d | %-12s | %-10d | %-28s | %-6.2f |%n", 
+                index, name, rollNumber, branch, cgpa);
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("============================================================================");
+        System.out.println("            TASK 1: CLASSES &amp; OBJECTS - STUDENT MANAGEMENT                  ");
+        System.out.println("============================================================================");
+
+        Student s1 = new Student();
+        s1.name = "Aadarsh";
+        s1.rollNumber = 101;
+        s1.branch = "Computer Science &amp; Engg";
+        s1.cgpa = 8.85;
+
+        Student s2 = new Student();
+        s2.name = "Priya Sharma";
+        s2.rollNumber = 102;
+        s2.branch = "Information Technology";
+        s2.cgpa = 9.10;
+
+        Student s3 = new Student();
+        s3.name = "Rahul Verma";
+        s3.rollNumber = 103;
+        s3.branch = "Electronics &amp; Comm";
+        s3.cgpa = 8.40;
+
+        System.out.println("+-------+--------------+------------+------------------------------+--------+");
+        System.out.printf("| %-5s | %-12s | %-10s | %-28s | %-6s |%n", "S.No", "Name", "Roll No", "Branch", "CGPA");
+        System.out.println("+-------+--------------+------------+------------------------------+--------+");
+        s1.displayDetails(1);
+        s2.displayDetails(2);
+        s3.displayDetails(3);
+        System.out.println("+-------+--------------+------------+------------------------------+--------+");
+    }
+}</code></pre>
+
+            <h3>Terminal Output</h3>
+            <pre class="terminal-output"><code>============================================================================
+            TASK 1: CLASSES &amp; OBJECTS - STUDENT MANAGEMENT                  
+============================================================================
++-------+--------------+------------+------------------------------+--------+
+| S.No  | Name         | Roll No    | Branch                       | CGPA   |
++-------+--------------+------------+------------------------------+--------+
+| 1     | Aadarsh      | 101        | Computer Science &amp; Engg      | 8.85   |
+| 2     | Priya Sharma | 102        | Information Technology       | 9.10   |
+| 3     | Rahul Verma  | 103        | Electronics &amp; Comm           | 8.40   |
++-------+--------------+------------+------------------------------+--------+</code></pre>
+
+            <div class="screenshot-placeholder">[ Screenshot of Task 1 Terminal Output ]</div>
+
+            <div class="explanation-box">
+                <strong>Brief Explanation:</strong> Demonstrates the foundational concept of Classes and Objects in Java. The <code>Student</code> class acts as a template defining attributes and a display method. The <code>main()</code> method creates three instances, accesses their attributes directly, and prints their details in an aligned table.
+            </div>
+        </div>
+    </div>
+
+    <!-- TASK 2 -->
+    <div class="task-card">
+        <div class="task-header">
+            <h2>Task 2: Constructors — Employee Information</h2>
+            <span class="marks-badge">15 Marks</span>
+        </div>
+        <div class="task-content">
+            <h3>Objective</h3>
+            <p>Implement both Default and Parameterized constructors in an <code>Employee</code> class, instantiate objects with both constructors, and display their details.</p>
+            
+            <h3>Source Code (Task2.java)</h3>
+            <pre><code>public class Task2 {
+
+    static class Employee {
+        int employeeId;
+        String employeeName;
+        String department;
+        double salary;
+
+        // 1. Default Constructor
+        public Employee() {
+            this.employeeId = 1000;
+            this.employeeName = "Not Assigned";
+            this.department = "General";
+            this.salary = 25000.00;
+        }
+
+        // 2. Parameterized Constructor
+        public Employee(int employeeId, String employeeName, String department, double salary) {
+            this.employeeId = employeeId;
+            this.employeeName = employeeName;
+            this.department = department;
+            this.salary = salary;
+        }
+
+        public void displayDetails(String constructorType) {
+            System.out.println("--------------------------------------------------");
+            System.out.println("Constructor Type : " + constructorType);
+            System.out.println("Employee ID      : " + employeeId);
+            System.out.println("Employee Name    : " + employeeName);
+            System.out.println("Department       : " + department);
+            System.out.printf("Salary           : Rs. %.2f%n", salary);
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("==================================================");
+        System.out.println("         TASK 2: CONSTRUCTORS PRACTICE            ");
+        System.out.println("==================================================");
+
+        Employee emp1 = new Employee();
+        emp1.displayDetails("Default Constructor");
+
+        Employee emp2 = new Employee(101, "Aadarsh", "Software Development", 75000.00);
+        emp2.displayDetails("Parameterized Constructor");
+
+        Employee emp3 = new Employee(102, "Rohit Mehra", "DevOps &amp; Cloud", 82000.00);
+        emp3.displayDetails("Parameterized Constructor");
+
+        System.out.println("==================================================");
+    }
+}</code></pre>
+
+            <h3>Terminal Output</h3>
+            <pre class="terminal-output"><code>==================================================
+         TASK 2: CONSTRUCTORS PRACTICE            
+==================================================
+--------------------------------------------------
+Constructor Type : Default Constructor
+Employee ID      : 1000
+Employee Name    : Not Assigned
+Department       : General
+Salary           : Rs. 25000.00
+--------------------------------------------------
+Constructor Type : Parameterized Constructor
+Employee ID      : 101
+Employee Name    : Aadarsh
+Department       : Software Development
+Salary           : Rs. 75000.00
+--------------------------------------------------
+Constructor Type : Parameterized Constructor
+Employee ID      : 102
+Employee Name    : Rohit Mehra
+Department       : DevOps &amp; Cloud
+Salary           : Rs. 82000.00
+==================================================</code></pre>
+
+            <div class="screenshot-placeholder">[ Screenshot of Task 2 Terminal Output ]</div>
+
+            <div class="explanation-box">
+                <strong>Brief Explanation of Constructors:</strong>
+                <ul>
+                    <li>A constructor is an initialization block invoked automatically whenever an object is created with <code>new</code>. It has no return type.</li>
+                    <li><strong>Default Constructor:</strong> Takes zero arguments and provides sensible baseline values for state initialization.</li>
+                    <li><strong>Parameterized Constructor:</strong> Accepts parameters to initialize object variables with customized data upon creation.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- TASK 3 -->
+    <div class="task-card">
+        <div class="task-header">
+            <h2>Task 3: "this" &amp; "static" — Bank Account</h2>
+            <span class="marks-badge">15 Marks</span>
+        </div>
+        <div class="task-content">
+            <h3>Objective</h3>
+            <p>Use the <code>this</code> keyword to avoid variable shadowing and a <code>static</code> variable to track the total count of bank accounts created across all instances.</p>
+            
+            <h3>Source Code (Task3.java)</h3>
+            <pre><code>public class Task3 {
+
+    static class BankAccount {
+        private String accountHolderName;
+        private long accountNumber;
+        private double balance;
+
+        public static int totalAccounts = 0;
+
+        public BankAccount(String accountHolderName, long accountNumber, double balance) {
+            this.accountHolderName = accountHolderName;
+            this.accountNumber = accountNumber;
+            this.balance = balance;
+            totalAccounts++;
+        }
+
+        public void displayAccountDetails() {
+            System.out.println("--------------------------------------------------");
+            System.out.println("Account Number : " + this.accountNumber);
+            System.out.println("Account Holder : " + this.accountHolderName);
+            System.out.printf("Current Balance: Rs. %.2f%n", this.balance);
+        }
+
+        public static void displayTotalAccounts() {
+            System.out.println("\n==================================================");
+            System.out.println("&gt;&gt; Total Bank Accounts Created (static) : " + totalAccounts);
+            System.out.println("==================================================");
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("==================================================");
+        System.out.println("       TASK 3: 'this' &amp; 'static' KEYWORDS         ");
+        System.out.println("==================================================");
+
+        BankAccount acc1 = new BankAccount("Aadarsh", 100123456789L, 50000.00);
+        BankAccount acc2 = new BankAccount("Neha Singh", 100987654321L, 75500.50);
+        BankAccount acc3 = new BankAccount("Vikas Sharma", 100555666777L, 32000.75);
+
+        System.out.println("ACCOUNT DETAILS:");
+        acc1.displayAccountDetails();
+        acc2.displayAccountDetails();
+        acc3.displayAccountDetails();
+
+        BankAccount.displayTotalAccounts();
+    }
+}</code></pre>
+
+            <h3>Terminal Output</h3>
+            <pre class="terminal-output"><code>==================================================
+       TASK 3: 'this' &amp; 'static' KEYWORDS         
+==================================================
+ACCOUNT DETAILS:
+--------------------------------------------------
+Account Number : 100123456789
+Account Holder : Aadarsh
+Current Balance: Rs. 50000.00
+--------------------------------------------------
+Account Number : 100987654321
+Account Holder : Neha Singh
+Current Balance: Rs. 75500.50
+--------------------------------------------------
+Account Number : 100555666777
+Account Holder : Vikas Sharma
+Current Balance: Rs. 32000.75
+
+==================================================
+&gt;&gt; Total Bank Accounts Created (static) : 3
+==================================================</code></pre>
+
+            <div class="screenshot-placeholder">[ Screenshot of Task 3 Terminal Output ]</div>
+
+            <div class="explanation-box">
+                <strong>Brief Explanation of "this" and "static":</strong>
+                <ul>
+                    <li><strong><code>this</code> Keyword:</strong> Refers to the current calling instance, eliminating variable shadowing when constructor parameters match field names.</li>
+                    <li><strong><code>static</code> Keyword:</strong> Allocates a single shared memory location bound to the class rather than individual instances, ideal for counting total accounts created.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- TASK 4 -->
+    <div class="task-card">
+        <div class="task-header">
+            <h2>Task 4: Inheritance — Employee Management</h2>
+            <span class="marks-badge">20 Marks</span>
+        </div>
+        <div class="task-content">
+            <h3>Objective</h3>
+            <p>Create a parent class <code>Employee</code> and two child classes (<code>Developer</code>, <code>Manager</code>) utilizing <code>extends</code> and <code>super</code> to exhibit code reusability.</p>
+            
+            <h3>Source Code (Task4.java)</h3>
+            <pre><code>public class Task4 {
+
+    static class Employee {
+        String name;
+        int employeeId;
+        double salary;
+
+        public Employee(String name, int employeeId, double salary) {
+            this.name = name;
+            this.employeeId = employeeId;
+            this.salary = salary;
+        }
+
+        public void displayBasicInfo() {
+            System.out.println("Employee ID : " + employeeId);
+            System.out.println("Name        : " + name);
+            System.out.printf("Base Salary : Rs. %.2f%n", salary);
+        }
+    }
+
+    static class Developer extends Employee {
+        String programmingLanguage;
+        String projectTitle;
+
+        public Developer(String name, int employeeId, double salary, String programmingLanguage, String projectTitle) {
+            super(name, employeeId, salary);
+            this.programmingLanguage = programmingLanguage;
+            this.projectTitle = projectTitle;
+        }
+
+        public void displayDeveloperDetails() {
+            System.out.println("Role        : Software Developer");
+            displayBasicInfo();
+            System.out.println("Language    : " + programmingLanguage);
+            System.out.println("Project     : " + projectTitle);
+        }
+
+        public void writeCode() {
+            System.out.println("Action      : " + name + " is writing and optimizing " + programmingLanguage + " modules.");
+        }
+    }
+
+    static class Manager extends Employee {
+        int teamSize;
+        String department;
+
+        public Manager(String name, int employeeId, double salary, int teamSize, String department) {
+            super(name, employeeId, salary);
+            this.teamSize = teamSize;
+            this.department = department;
+        }
+
+        public void displayManagerDetails() {
+            System.out.println("Role        : Engineering Manager");
+            displayBasicInfo();
+            System.out.println("Department  : " + department);
+            System.out.println("Team Size   : " + teamSize + " Engineers");
+        }
+
+        public void conductMeeting() {
+            System.out.println("Action      : " + name + " is conducting a sprint planning meeting for " + department + ".");
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("==================================================");
+        System.out.println("           TASK 4: INHERITANCE PRACTICE           ");
+        System.out.println("==================================================");
+
+        Developer dev = new Developer("Aadarsh", 201, 75000.00, "Java &amp; Spring Boot", "Banking Microservices");
+        System.out.println("1. DEVELOPER DETAILS:");
+        System.out.println("--------------------------------------------------");
+        dev.displayDeveloperDetails();
+        dev.writeCode();
+
+        System.out.println("\n2. MANAGER DETAILS:");
+        System.out.println("--------------------------------------------------");
+        Manager mgr = new Manager("Ananya Roy", 101, 120000.00, 12, "Backend Architecture");
+        mgr.displayManagerDetails();
+        mgr.conductMeeting();
+
+        System.out.println("==================================================");
+    }
+}</code></pre>
+
+            <h3>Terminal Output</h3>
+            <pre class="terminal-output"><code>==================================================
+           TASK 4: INHERITANCE PRACTICE           
+==================================================
+1. DEVELOPER DETAILS:
+--------------------------------------------------
+Role        : Software Developer
+Employee ID : 201
+Name        : Aadarsh
+Base Salary : Rs. 75000.00
+Language    : Java &amp; Spring Boot
+Project     : Banking Microservices
+Action      : Aadarsh is writing and optimizing Java &amp; Spring Boot modules.
+
+2. MANAGER DETAILS:
+--------------------------------------------------
+Role        : Engineering Manager
+Employee ID : 101
+Name        : Ananya Roy
+Base Salary : Rs. 120000.00
+Department  : Backend Architecture
+Team Size   : 12 Engineers
+Action      : Ananya Roy is conducting a sprint planning meeting for Backend Architecture.
+==================================================</code></pre>
+
+            <div class="screenshot-placeholder">[ Screenshot of Task 4 Terminal Output ]</div>
+
+            <div class="explanation-box">
+                <strong>Brief Explanation of Inheritance:</strong> Inheritance (via <code>extends</code>) enables derived classes (<code>Developer</code> and <code>Manager</code>) to inherit fundamental properties and methods from a base class (<code>Employee</code>). It promotes code reusability, simplifies maintenance, and allows subclasses to invoke parent constructors via <code>super()</code> while adding specific properties and behaviors.
+            </div>
+        </div>
+    </div>
+
+    <!-- TASK 5 -->
+    <div class="task-card">
+        <div class="task-header">
+            <h2>Task 5: Polymorphism — Method Overloading &amp; Overriding</h2>
+            <span class="marks-badge">20 Marks</span>
+        </div>
+        <div class="task-content">
+            <h3>Objective</h3>
+            <p>Demonstrate Compile-Time Polymorphism via Method Overloading and Runtime Polymorphism via Method Overriding with a <code>Vehicle</code>, <code>Car</code>, and <code>Bike</code> hierarchy.</p>
+            
+            <h3>Source Code (Task5.java)</h3>
+            <pre><code>public class Task5 {
+
+    static class Calculator {
+        public int calculate(int a, int b) {
+            System.out.print("calculate(int, int)       : ");
+            return a + b;
+        }
+
+        public double calculate(double a, double b) {
+            System.out.print("calculate(double, double) : ");
+            return a * b;
+        }
+
+        public int calculate(int a, int b, int c) {
+            System.out.print("calculate(int, int, int)  : ");
+            return a + b + c;
+        }
+    }
+
+    static class Vehicle {
+        public void start() {
+            System.out.println("Vehicle: General vehicle startup ignition sequence initiated.");
+        }
+    }
+
+    static class Car extends Vehicle {
+        @Override
+        public void start() {
+            System.out.println("Car    : Push-button start activated. Engine purring smoothly with AC on.");
+        }
+    }
+
+    static class Bike extends Vehicle {
+        @Override
+        public void start() {
+            System.out.println("Bike   : Self-start pressed. Two-wheeler engine revving with high torque.");
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("==================================================");
+        System.out.println("          TASK 5: POLYMORPHISM IN JAVA            ");
+        System.out.println("==================================================");
+
+        System.out.println("PART A: METHOD OVERLOADING (Compile-Time)");
+        System.out.println("--------------------------------------------------");
+        Calculator calc = new Calculator();
+        System.out.println(calc.calculate(15, 25));
+        System.out.println(calc.calculate(4.5, 3.2));
+        System.out.println(calc.calculate(10, 20, 30));
+
+        System.out.println("\nPART B: METHOD OVERRIDING (Run-Time)");
+        System.out.println("--------------------------------------------------");
+        Vehicle v1 = new Vehicle();
+        v1.start();
+
+        Vehicle v2 = new Car();
+        v2.start();
+
+        Vehicle v3 = new Bike();
+        v3.start();
+
+        System.out.println("==================================================");
+    }
+}</code></pre>
+
+            <h3>Terminal Output</h3>
+            <pre class="terminal-output"><code>==================================================
+          TASK 5: POLYMORPHISM IN JAVA            
+==================================================
+PART A: METHOD OVERLOADING (Compile-Time)
+--------------------------------------------------
+calculate(int, int)       : 40
+calculate(double, double) : 14.4
+calculate(int, int, int)  : 60
+
+PART B: METHOD OVERRIDING (Run-Time)
+--------------------------------------------------
+Vehicle: General vehicle startup ignition sequence initiated.
+Car    : Push-button start activated. Engine purring smoothly with AC on.
+Bike   : Self-start pressed. Two-wheeler engine revving with high torque.
+==================================================</code></pre>
+
+            <div class="screenshot-placeholder">[ Screenshot of Task 5 Terminal Output ]</div>
+
+            <div class="explanation-box">
+                <strong>Brief Explanation of Overloading and Overriding:</strong>
+                <ul>
+                    <li><strong>Method Overloading:</strong> Methods in the same class having the same name but distinct parameter signatures. Resolved statically at compile time.</li>
+                    <li><strong>Method Overriding:</strong> Subclasses providing specific implementation of an inherited parent method. Resolved dynamically at runtime via Dynamic Method Dispatch based on the underlying object type.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- TASK 6 -->
+    <div class="task-card">
+        <div class="task-header">
+            <h2>Task 6: Encapsulation &amp; Abstraction — Banking System</h2>
+            <span class="marks-badge">15 Marks</span>
+        </div>
+        <div class="task-content">
+            <h3>Objective</h3>
+            <p>Implement a banking system demonstrating Encapsulation (private fields, validation, getters/setters) and Abstraction (abstract class <code>Account</code> with abstract and normal methods).</p>
+            
+            <h3>Source Code (Task6.java)</h3>
+            <pre><code>public class Task6 {
+
+    static class BankAccount {
+        private long accountNumber;
+        private String accountHolderName;
+        private double balance;
+
+        public BankAccount(long accountNumber, String accountHolderName, double initialBalance) {
+            this.accountNumber = accountNumber;
+            this.accountHolderName = accountHolderName;
+            this.balance = (initialBalance &gt;= 0) ? initialBalance : 0.0;
+        }
+
+        public long getAccountNumber() { return accountNumber; }
+        public void setAccountNumber(long accountNumber) { this.accountNumber = accountNumber; }
+
+        public String getAccountHolderName() { return accountHolderName; }
+        public void setAccountHolderName(String accountHolderName) {
+            if (accountHolderName != null &amp;&amp; !accountHolderName.trim().isEmpty()) {
+                this.accountHolderName = accountHolderName;
+            } else {
+                System.out.println("Invalid name! Cannot set empty holder name.");
+            }
+        }
+
+        public double getBalance() { return balance; }
+
+        public void deposit(double amount) {
+            if (amount &gt; 0) {
+                this.balance += amount;
+                System.out.printf("Deposited   : Rs. %.2f | New Balance: Rs. %.2f%n", amount, this.balance);
+            } else {
+                System.out.println("Deposit failed! Amount must be positive.");
+            }
+        }
+
+        public void withdraw(double amount) {
+            if (amount &gt; 0 &amp;&amp; amount &lt;= this.balance) {
+                this.balance -= amount;
+                System.out.printf("Withdrawn   : Rs. %.2f | Remaining Balance: Rs. %.2f%n", amount, this.balance);
+            } else {
+                System.out.println("Withdrawal failed! Insufficient funds or invalid amount.");
+            }
+        }
+    }
+
+    static abstract class Account {
+        protected String accountType;
+        protected double annualInterestRate;
+
+        public Account(String accountType, double annualInterestRate) {
+            this.accountType = accountType;
+            this.annualInterestRate = annualInterestRate;
+        }
+
+        public abstract double calculateInterest(double principal, int years);
+
+        public void displayAccountPolicy() {
+            System.out.println("Account Type         : " + accountType);
+            System.out.println("Annual Interest Rate : " + annualInterestRate + "% per annum");
+            System.out.println("Policy Terms         : Governed by Reserve Bank of India regulations.");
+        }
+    }
+
+    static class SavingsAccount extends Account {
+        public SavingsAccount(double interestRate) {
+            super("High-Yield Savings Account", interestRate);
+        }
+
+        @Override
+        public double calculateInterest(double principal, int years) {
+            double totalAmount = principal * Math.pow((1 + (annualInterestRate / 100.0)), years);
+            return totalAmount - principal;
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("==================================================");
+        System.out.println("    TASK 6: ENCAPSULATION &amp; ABSTRACTION DEMO      ");
+        System.out.println("==================================================");
+
+        System.out.println("PART 1: ENCAPSULATION DEMONSTRATION");
+        System.out.println("--------------------------------------------------");
+        BankAccount bankAcc = new BankAccount(987654321012L, "Aadarsh", 25000.00);
+
+        System.out.println("Account Number : " + bankAcc.getAccountNumber());
+        System.out.println("Account Holder : " + bankAcc.getAccountHolderName());
+        System.out.printf("Initial Balance: Rs. %.2f%n", bankAcc.getBalance());
+
+        System.out.println("\nTransaction Operations:");
+        bankAcc.deposit(10000.00);
+        bankAcc.withdraw(5000.00);
+        bankAcc.withdraw(50000.00);
+
+        System.out.println("\n--------------------------------------------------");
+        System.out.println("PART 2: ABSTRACTION DEMONSTRATION");
+        System.out.println("--------------------------------------------------");
+        Account savings = new SavingsAccount(6.5);
+        savings.displayAccountPolicy();
+
+        double principal = bankAcc.getBalance();
+        int tenureYears = 3;
+        double interestEarned = savings.calculateInterest(principal, tenureYears);
+
+        System.out.println("\nInterest Calculation on Account Balance:");
+        System.out.printf("Principal Amount     : Rs. %.2f%n", principal);
+        System.out.println("Investment Tenure    : " + tenureYears + " Years");
+        System.out.printf("Interest Earned      : Rs. %.2f%n", interestEarned);
+        System.out.printf("Maturity Amount      : Rs. %.2f%n", (principal + interestEarned));
+        System.out.println("==================================================");
+    }
+}</code></pre>
+
+            <h3>Terminal Output</h3>
+            <pre class="terminal-output"><code>==================================================
+    TASK 6: ENCAPSULATION &amp; ABSTRACTION DEMO      
+==================================================
+PART 1: ENCAPSULATION DEMONSTRATION
+--------------------------------------------------
+Account Number : 987654321012
+Account Holder : Aadarsh
+Initial Balance: Rs. 25000.00
+
+Transaction Operations:
+Deposited   : Rs. 10000.00 | New Balance: Rs. 35000.00
+Withdrawn   : Rs. 5000.00 | Remaining Balance: Rs. 30000.00
+Withdrawal failed! Insufficient funds or invalid amount.
+
+--------------------------------------------------
+PART 2: ABSTRACTION DEMONSTRATION
+--------------------------------------------------
+Account Type         : High-Yield Savings Account
+Annual Interest Rate : 6.5% per annum
+Policy Terms         : Governed by Reserve Bank of India regulations.
+
+Interest Calculation on Account Balance:
+Principal Amount     : Rs. 30000.00
+Investment Tenure    : 3 Years
+Interest Earned      : Rs. 6238.49
+Maturity Amount      : Rs. 36238.49
+==================================================</code></pre>
+
+            <div class="screenshot-placeholder">[ Screenshot of Task 6 Terminal Output ]</div>
+
+            <div class="explanation-box">
+                <strong>Brief Explanation of Encapsulation and Abstraction:</strong>
+                <ul>
+                    <li><strong>Encapsulation:</strong> Keeps state variables <code>private</code> and controls modification through public methods with integrity checks (preventing negative balances or invalid inputs).</li>
+                    <li><strong>Abstraction:</strong> Hides mathematical/business complexity behind abstract contracts (<code>calculateInterest()</code> in <code>Account</code>), allowing different account types to implement their own formulas while exposing a clean public interface.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- SUBMISSION SUMMARY -->
+    <div class="task-card">
+        <div class="task-header">
+            <h2>Evaluation &amp; Submission Checklist</h2>
+            <span class="marks-badge" style="background:#0056b3;">Total: 100 Marks</span>
+        </div>
+        <div class="task-content">
+            <table class="checklist-table">
+                <thead>
+                    <tr>
+                        <th>Task / Criteria</th>
+                        <th>Marks</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Task 1: Classes &amp; Objects &mdash; Student Management</td><td>15</td><td>&#10004; Completed</td></tr>
+                    <tr><td>Task 2: Constructors &mdash; Employee Information</td><td>15</td><td>&#10004; Completed</td></tr>
+                    <tr><td>Task 3: "this" &amp; "static" &mdash; Bank Account</td><td>15</td><td>&#10004; Completed</td></tr>
+                    <tr><td>Task 4: Inheritance &mdash; Employee Management</td><td>20</td><td>&#10004; Completed</td></tr>
+                    <tr><td>Task 5: Polymorphism &mdash; Method Overloading &amp; Overriding</td><td>20</td><td>&#10004; Completed</td></tr>
+                    <tr><td>Task 6: Encapsulation &amp; Abstraction &mdash; Banking System</td><td>15</td><td>&#10004; Completed</td></tr>
+                    <tr style="font-weight: bold; background-color: #f1f8ff;">
+                        <td>Total Marks</td>
+                        <td>100</td>
+                        <td>Ready for Submission</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
